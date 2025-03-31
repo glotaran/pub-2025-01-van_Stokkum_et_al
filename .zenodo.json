@@ -1,0 +1,50 @@
+{
+  "title": "Supplementary Information (SI) for Cyanobacteria Dynamically Regulate Phycobilisome-to-Photosystems Excitation Energy Transfer",
+  "creators": [
+    {
+      "name": "Ivo H.M. van Stokkum",
+      "affiliation": "Vrije Universiteit Amsterdam",
+      "orcid": "0000-0002-6143-2021"
+    },
+    {
+      "name": "Dariusz M. Niedzwiedzki",
+      "affiliation": "Washington University in St. Louis",
+      "orcid": "0000-0002-1976-9296"
+    },
+    {
+      "name": "Parveen Akhtar",
+      "affiliation": "HUN-REN Biological Research Centre",
+      "orcid": "0000-0002-3264-7154"
+    },
+    {
+      "name": "Avratanu Biswas",
+      "affiliation": "Vrije Universiteit Amsterdam"
+    },
+    {
+      "name": "Petar H. Lambrev",
+      "affiliation": "HUN-REN Biological Research Centre",
+      "orcid": "0000-0001-5147-153X"
+    },
+    {
+      "name": "Haijun Liu",
+      "affiliation": "Saint Louis University",
+      "orcid": "0000-0003-0537-0302"
+    }
+  ],
+  "keywords": [
+    "global analysis",
+    "target analysis",
+    "photosynthesis",
+    "state transitions",
+    "fluorescence",
+    "ultrafast spectroscopy",
+    "time-resolved spectroscopy",
+    "biophysics",
+    "glotaran",
+    "python"
+  ],
+  "access_right": "open",
+  "license": "CC-BY-4.0",
+  "upload_type": "publication",
+  "publication_type": "softwaredocumentation"
+}

@@ -1,6 +1,6 @@
 # pub-2025-01-van_Stokkum_et_al
 
-## Cyanobacteria Dynamically Regulate Phycobilisome-to-Photosystems Excitation Energy Transfer
+## Supplementary Information (SI) for Cyanobacteria Dynamically Regulate Phycobilisome-to-Photosystems Excitation Energy Transfer
 
 Ivo H.M. van Stokkum<sup>1,6*</sup>, Dariusz M. Niedzwiedzki<sup>2,3</sup>, Parveen Akhtar<sup>5</sup>, Avratanu Biswas<sup>1,5</sup>, Petar H. Lambrev<sup>5</sup>, Haijun Liu<sup>4</sup>
 
