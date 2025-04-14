@@ -1,0 +1,9 @@
+spectral:
+  - ["amp1", 1, { vary: False }]
+  - ["loc1", 14660]
+  - ["width1", 240]
+  - ["skew1", -0.31]
+  - ["amp2", 1, { vary: False }]
+  - ["loc2", 14000]
+  - ["width2", 100]
+  - ["skew2", -0.01, { vary: False }]

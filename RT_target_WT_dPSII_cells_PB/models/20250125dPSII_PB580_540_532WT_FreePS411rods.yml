@@ -1,0 +1,565 @@
+default_megacomplex: decay
+
+dataset_groups:
+  default:
+    residual_function: non_negative_least_squares
+    link_clp: true
+
+dataset:
+  WT400_data:
+    initial_concentration: inputWT400
+    megacomplex: [mcPBSPS,mcfreePBS,mcfreerod,mcfreePSI,mcfreePSII]
+    megacomplex_scale: [scalem.1,scalem.WT400freePBS,scalem.WT400freerod,scalem.WT400freePSI,scalem.WT400freePSII]
+    irf: irfWT400
+    scale: scale.WT400
+  WT532_data:
+    initial_concentration: inputWT532
+    megacomplex: [mcPBSPS,mcfreePBS,mcfreerod,mcfreePSI,mcfreePSII]
+    megacomplex_scale: [scalem.1,scalem.WT532freePBS,scalem.WT532freerod,scalem.WT400freePSI,scalem.WT400freePSII]
+    irf: irfWT532
+    scale: scale.WT532
+  WT540_data:
+    initial_concentration: inputWT540
+    megacomplex: [mcPBSPS,mcfreePBS,mcfreerod,mcfreePSI,mcfreePSII]
+    megacomplex_scale: [scalem.1,scalem.WT540freePBS,scalem.WT540freerod,scalem.WT400freePSI,scalem.WT400freePSII]
+    irf: irfWT540
+    scale: scale.WT540
+  WT580_data:
+    initial_concentration: inputWT580
+    megacomplex: [mcPBSPS,mcfreePBS,mcfreerod,mcfreePSI,mcfreePSII]
+    megacomplex_scale: [scalem.1,scalem.WT580freePBS,scalem.WT580freerod,scalem.WT400freePSI,scalem.WT400freePSII]
+    irf: irfWT580
+    scale: scale.WT580
+  dPSII400_data:
+    initial_concentration: input400
+    megacomplex: [mcPBSPSI,mcfreePBS,mcfreerod,mcfreePSI]
+    megacomplex_scale: [scalem.1,scalem.dPSII400freePBS,scalem.dPSII400freerod,scalem.dPSII400freePSI]
+    irf: irfdPSII400
+    scale: scale.dPSII400
+  dPSII532_data:
+    initial_concentration: input532
+    megacomplex: [mcPBSPSI,mcfreePBS,mcfreerod,mcfreePSI]
+    megacomplex_scale: [scalem.1,scalem.dPSII532freePBS,scalem.dPSII532freerod,scalem.dPSII400freePSI]
+    irf: irfdPSII532
+    scale: scale.dPSII532
+  dPSII540_data:
+    initial_concentration: input540
+    megacomplex: [mcPBSPSI,mcfreePBS,mcfreerod,mcfreePSI]
+    megacomplex_scale: [scalem.1,scalem.dPSII540freePBS,scalem.dPSII540freerod,scalem.dPSII400freePSI]
+    irf: irfdPSII540
+    scale: scale.dPSII540
+  dPSII580_data:
+    initial_concentration: input580
+    megacomplex: [mcPBSPSI,mcfreePBS,mcfreerod,mcfreePSI]
+    megacomplex_scale: [scalem.1,scalem.dPSII580freePBS,scalem.dPSII580freerod,scalem.dPSII400freePSI]
+    irf: irfdPSII580
+    scale: scale.dPSII580
+  PBS580_data:
+    initial_concentration: inputPBS580
+    megacomplex: [mcPBfreePBS]
+    # megacomplex_scale: [scalem.1]
+    irf: irfPBS580
+    scale: scale.PBS580
+  guide_APC680:
+    megacomplex: [complex_guide_APC680]
+    scale: scale.guide_APC680
+  guide_PBAPC680:
+    megacomplex: [complex_guide_PBAPC680]
+    scale: scale.guide_PBAPC680
+  guide_APC660:
+    megacomplex: [complex_guide_APC660]
+    scale: scale.guide_APC660
+  guide_PBAPC660:
+    megacomplex: [complex_guide_PBAPC660]
+    scale: scale.guide_PBAPC660
+  guide_PC650:
+    megacomplex: [complex_guide_PC650]
+    scale: scale.guide_PC650
+  guide_PBPC650:
+    megacomplex: [complex_guide_PBPC650]
+    scale: scale.guide_PBPC650
+  guide_PC640:
+    megacomplex: [complex_guide_PC640]
+    scale: scale.guide_PC640
+  guide_PBPC640:
+    megacomplex: [complex_guide_PBPC640]
+    scale: scale.guide_PBPC640
+
+# t,b,e: top, bottom, end APC660 compartments: top cylinder, bottom cylinder pure APC660,
+# bottom cylinder APC660 in disks with APC680, thus in fast equilibrium with the terminal emitter.
+initial_concentration:
+  inputWT400:
+    compartments: [APC660t, APC660b, APC660e, APC680,PC650t,PC650b,PC650e,PC640t,PC640b,PC640e,
+    PC650free,PC640free,PSIbulk, PSIred,PSIIbulk, PSIIRP]
+    parameters: [
+      input400.APC660t_APC660b,
+      input400.APC660t_APC660b,
+      input400.APC660e,
+      input400.APC680, input400.PC650t, input400.PC650, input400.PC650, input400.PC640t, input400.PC640, input400.PC640, input400.PC650,
+      input400.PC640,
+      inputWT400.PSIbulk, inputWT400.PSIred,inputWT400.PSIIbulk,input.0
+      ]
+  inputWT532:
+    compartments: [APC660t, APC660b, APC660e, APC680,PC650t,PC650b,PC650e,PC640t,PC640b,PC640e,
+    PC650free,PC640free,PSIbulk, PSIred,PSIIbulk, PSIIRP]
+    parameters: [
+      input580.APC660t_APC660b,
+      input580.APC660t_APC660b,
+      input580.APC660e,
+      input580.APC680, input580.PC650t, input580.PC650, input580.PC650, input580.PC640t, input580.PC640, input580.PC640, input580.PC650,
+      input580.PC640,
+      inputWT532.PSIbulk, inputWT532.PSIred,inputWT532.PSIIbulk,input.0
+      ]
+  inputWT540:
+    compartments: [APC660t, APC660b, APC660e, APC680,PC650t,PC650b,PC650e,PC640t,PC640b,PC640e,
+    PC650free,PC640free,PSIbulk, PSIred,PSIIbulk, PSIIRP]
+    parameters: [
+      input580.APC660t_APC660b,
+      input580.APC660t_APC660b,
+      input580.APC660e,
+      input580.APC680, input580.PC650t, input580.PC650, input580.PC650, input580.PC640t, input580.PC640, input580.PC640, input580.PC650,
+      input580.PC640,
+      inputWT540.PSIbulk, inputWT540.PSIred,inputWT540.PSIIbulk,input.0
+      ]
+  inputWT580:
+    compartments: [APC660t, APC660b, APC660e, APC680,PC650t,PC650b,PC650e,PC640t,PC640b,PC640e,
+    PC650free,PC640free,PSIbulk, PSIred,PSIIbulk, PSIIRP]
+    parameters: [
+      input580.APC660t_APC660b,
+      input580.APC660t_APC660b,
+      input580.APC660e,
+      input580.APC680, input580.PC650t, input580.PC650, input580.PC650, input580.PC640t, input580.PC640, input580.PC640, input580.PC650,
+      input580.PC640,
+      inputWT580.PSIbulk, inputWT580.PSIred,inputWT580.PSIIbulk,input.0
+      ]
+  input400:
+    compartments: [APC660t, APC660b, APC660e, APC680,PC650t,PC650b,PC650e,PC640t,PC640b,PC640e,PC650free,PC640free,PSIbulk, PSIred]
+    parameters: [
+      input400.APC660t_APC660b,
+      input400.APC660t_APC660b,
+      input400.APC660e,
+      input400.APC680, input400.PC650t, input400.PC650, input400.PC650, input400.PC640t, input400.PC640, input400.PC640, input400.PC650,
+      input400.PC640,input400.PSIbulk, input400.PSIred
+      ]
+  input532:
+    compartments: [APC660t, APC660b, APC660e, APC680,PC650t,PC650b,PC650e,PC640t,PC640b,PC640e,PC650free,PC640free,PSIbulk, PSIred]
+    parameters: [
+      input580.APC660t_APC660b,
+      input580.APC660t_APC660b,
+      input580.APC660e,
+      input580.APC680, input580.PC650t, input580.PC650, input580.PC650, input580.PC640t, input580.PC640, input580.PC640, input580.PC650, input580.PC640,input532.PSIbulk, input532.PSIred
+      ]
+  input540:
+    compartments: [APC660t, APC660b, APC660e, APC680,PC650t,PC650b,PC650e,PC640t,PC640b,PC640e,PC650free,PC640free,PSIbulk, PSIred]
+    parameters: [
+      input580.APC660t_APC660b,
+      input580.APC660t_APC660b,
+      input580.APC660e,
+      input580.APC680, input580.PC650t, input580.PC650, input580.PC650, input580.PC640t, input580.PC640, input580.PC640, input580.PC650, input580.PC640,input540.PSIbulk, input540.PSIred
+      ]
+  input580:
+    compartments: [APC660t, APC660b, APC660e, APC680,PC650t,PC650b,PC650e,PC640t,PC640b,PC640e,PC650free,PC640free,PSIbulk, PSIred]
+    parameters: [
+      input580.APC660t_APC660b,
+      input580.APC660t_APC660b,
+      input580.APC660e,
+      input580.APC680, input580.PC650t, input580.PC650, input580.PC650, input580.PC640t, input580.PC640, input580.PC640, input580.PC650, input580.PC640,input580.PSIbulk, input580.PSIred
+      ]
+  inputPBS580:
+    compartments: [PBAPC660t, PBAPC660b, PBAPC660e, PBAPC680,PBPC650t,PBPC650b,PBPC650e,PBPC640t,PBPC640b,PBPC640e]
+    parameters: [
+      input580.APC660t_APC660b,
+      input580.APC660t_APC660b,
+      input580.APC660e,
+      input580.APC680, input580.PC650t, input580.PC650, input580.PC650, input580.PC640t, input580.PC640, input580.PC640]
+
+megacomplex:
+  mcPBSPS:
+    k_matrix: [kmcore,kmrodt,kmrodb,kmrode,kmPS]
+  mcPBSPSI:
+    k_matrix: [kmcore,kmrodt,kmrodb,kmrode,kmPSI]
+  mcfreePSI:
+    k_matrix: [kmfreePSI]
+  mcfreePSII:
+    k_matrix: [kmfreePSII]
+  mcfreePBS:
+    k_matrix: [kmcore,kmrodt,kmrodb,kmrode]
+  mcPBfreePBS:
+    k_matrix: [kmPBcore,kmPBrodt,kmPBrodb,kmPBrode]
+  mcfreerod:
+    k_matrix: [kmrod]
+  complex_guide_APC680:
+    dimension: time
+    target: APC680
+    type: clp-guide
+  complex_guide_PBAPC680:
+    dimension: time
+    target: PBAPC680
+    type: clp-guide
+  complex_guide_APC660:
+    dimension: time
+    target: APC660t
+    type: clp-guide
+  complex_guide_PBAPC660:
+    dimension: time
+    target: PBAPC660t
+    type: clp-guide
+  complex_guide_PC650:
+    dimension: time
+    target: PC650t
+    type: clp-guide
+  complex_guide_PBPC650:
+    dimension: time
+    target: PBPC650t
+    type: clp-guide
+  complex_guide_PC640:
+    dimension: time
+    target: PC640t
+    type: clp-guide
+  complex_guide_PBPC640:
+    dimension: time
+    target: PBPC640t
+    type: clp-guide
+
+k_matrix:
+  kmcore:
+    matrix:
+      (APC660t, APC660t): kinetic.out
+      (APC660t, APC660b): kinetic.1
+      (APC660t, APC660e): kinetic.1
+      (APC660b, APC660t): kinetic.1
+      (APC660b, APC660b): kinetic.out
+      (APC660b, APC660e): kinetic.2
+      (APC660e, APC660t): kinetic.1_1
+      (APC660e, APC660b): kinetic.2_1
+      (APC660e, APC660e): kinetic.out
+      (APC660e, APC680): kinetic.3_2
+      (APC680, APC660e): kinetic.3
+      (APC680, APC680): kinetic.out
+  kmrodt:
+    matrix:
+      (APC660t, PC650t): rates.ToAPC660tFromPC650t
+      (PC650t, PC650t): kinetic.out
+      (PC640t, PC640t): kinetic.out
+      (PC650t, APC660t): rates.ToPC650tFromAPC660t
+      (PC650t, PC640t): rates.ToPC650FromPC640
+      (PC640t, PC650t): rates.ToPC640FromPC650
+  kmrodb:
+    matrix:
+      (APC660b, PC650b): rates.ToAPC660bFromPC650b
+      (PC650b, PC650b): kinetic.out
+      (PC640b, PC640b): kinetic.out
+      (PC650b, APC660b): rates.ToPC650bFromAPC660b
+      (PC650b, PC640b): rates.ToPC650FromPC640
+      (PC640b, PC650b): rates.ToPC640FromPC650
+  kmrode:
+    matrix:
+      (APC660e, PC650e): rates.ToAPC660eFromPC650e
+      (PC650e, PC650e): kinetic.out
+      (PC640e, PC640e): kinetic.out
+      (PC650e, APC660e): rates.ToPC650eFromAPC660e
+      (PC650e, PC640e): rates.ToPC650FromPC640
+      (PC640e, PC650e): rates.ToPC640FromPC650
+  kmPBcore:
+    matrix:
+      (PBAPC660t, PBAPC660t): kinetic.outPB
+      (PBAPC660t, PBAPC660b): kinetic.1
+      (PBAPC660t, PBAPC660e): kinetic.1
+      (PBAPC660b, PBAPC660t): kinetic.1
+      (PBAPC660b, PBAPC660b): kinetic.outPB
+      (PBAPC660b, PBAPC660e): kinetic.2
+      (PBAPC660e, PBAPC660t): kinetic.1_1
+      (PBAPC660e, PBAPC660b): kinetic.2_1
+      (PBAPC660e, PBAPC660e): kinetic.outPB
+      (PBAPC660e, PBAPC680): kinetic.3_2
+      (PBAPC680, PBAPC660e): kinetic.3
+      (PBAPC680, PBAPC680): kinetic.outPB
+  kmPBrodt:
+    matrix:
+      (PBAPC660t, PBPC650t): rates.ToAPC660tFromPC650t
+      (PBPC650t, PBPC650t): kinetic.outPB
+      (PBPC640t, PBPC640t): kinetic.outPB
+      (PBPC650t, PBAPC660t): rates.ToPC650tFromAPC660t
+      (PBPC650t, PBPC640t): rates.ToPC650FromPC640
+      (PBPC640t, PBPC650t): rates.ToPC640FromPC650
+  kmPBrodb:
+    matrix:
+      (PBAPC660b, PBPC650b): rates.ToAPC660bFromPC650b
+      (PBPC650b, PBPC650b): kinetic.outPB
+      (PBPC640b, PBPC640b): kinetic.outPB
+      (PBPC650b, PBAPC660b): rates.ToPC650bFromAPC660b
+      (PBPC650b, PBPC640b): rates.ToPC650FromPC640
+      (PBPC640b, PBPC650b): rates.ToPC640FromPC650
+  kmPBrode:
+    matrix:
+      (PBAPC660e, PBPC650e): rates.ToAPC660eFromPC650e
+      (PBPC650e, PBPC650e): kinetic.outPB
+      (PBPC640e, PBPC640e): kinetic.outPB
+      (PBPC650e, PBAPC660e): rates.ToPC650eFromAPC660e
+      (PBPC650e, PBPC640e): rates.ToPC650FromPC640
+      (PBPC640e, PBPC650e): rates.ToPC640FromPC650
+  kmrod:
+    matrix:
+      (PC650free, PC650free): rates.freerod
+      (PC640free, PC640free): rates.freerod
+      (PC650free, PC640free): rates.ToPC650FromPC640
+      (PC640free, PC650free): rates.ToPC640FromPC650
+  kmPSI:
+    matrix:
+      (PSIbulk, APC680): rates.ToPSIbulkFromAPC680
+      # (APC680, PSIbulk): rates.ToAPC680FromPSIbulk
+      (PSIbulk, PSIbulk): rates.PSItrap
+      (PSIred, PSIred): rates.Chl
+      (PSIbulk, PSIred): rates.ToPSIbulkFromPSIred
+      (PSIred, PSIbulk): rates.ToPSIredFromPSIbulk
+  kmfreePSI:
+    matrix:
+      # (PSIbulk, APC680): rates.ToPSIbulkFromAPC680
+      # (APC680, PSIbulk): rates.ToAPC680FromPSIbulk
+      (PSIbulk, PSIbulk): rates.PSItrap
+      (PSIred, PSIred): rates.Chl
+      (PSIbulk, PSIred): rates.ToPSIbulkFromPSIred
+      (PSIred, PSIbulk): rates.ToPSIredFromPSIbulk
+  kmfreePSII:
+    matrix:
+      (PSIIbulk, PSIIRP): rates.ToPSIIbulkFromPSIIRP
+      (PSIIRP, PSIIbulk): rates.ToPSIIRPFromPSIIbulk
+      (PSIIRP, PSIIRP): rates.PSIIRP
+      (PSIIbulk, PSIIbulk): rates.Chl
+  kmPS:
+    matrix:
+      (PSIIbulk, APC680): rates.ToPSIIbulkFromAPC680
+      (PSIIbulk, PSIIRP): rates.ToPSIIbulkFromPSIIRP
+      (PSIIRP, PSIIbulk): rates.ToPSIIRPFromPSIIbulk
+      (PSIIRP, PSIIRP): rates.PSIIRP
+      (PSIIbulk, PSIIbulk): rates.Chl
+      (PSIbulk, PSIIbulk): rates.ToPSIbulkFromPSIIbulk
+      (PSIbulk, APC680): rates.ToPSIbulkFromAPC680
+      # (APC680, PSIbulk): rates.ToAPC680FromPSIbulk
+      (PSIbulk, PSIbulk): rates.PSItrap
+      (PSIred, PSIred): rates.Chl
+      (PSIbulk, PSIred): rates.ToPSIbulkFromPSIred
+      (PSIred, PSIbulk): rates.ToPSIredFromPSIbulk
+
+irf:
+  irfWT400:
+    # type: multi-gaussian
+    type: spectral-multi-gaussian
+    center: [irfWT400.center]
+    width: [irfWT400.width1,irfWT400.width2]
+    scale: [irfWT400.scale1,irfWT400.scale2]
+    dispersion_center: irf.dispc
+    center_dispersion_coefficients: [irf.disp1, irf.disp2]
+    backsweep: True
+    backsweep_period: irf.backsweep
+  irfWT532:
+    type: spectral-multi-gaussian
+    center: [irfWT532.center]
+    width: [irfWT532.width1,irfWT532.width2]
+    scale: [irfWT532.scale1,irfWT532.scale2]
+    dispersion_center: irf.dispc
+    center_dispersion_coefficients: [irf.disp1, irf.disp2]
+    backsweep: True
+    backsweep_period: irf.backsweep
+  irfWT540:
+    type: spectral-multi-gaussian
+    center: [irfWT540.center]
+    width: [irfWT540.width1,irfWT540.width2]
+    scale: [irfWT540.scale1,irfWT540.scale2]
+    dispersion_center: irf.dispc
+    center_dispersion_coefficients: [irf.disp1, irf.disp2]
+    backsweep: True
+    backsweep_period: irf.backsweep
+  irfWT580:
+    type: spectral-multi-gaussian
+    center: [irfWT580.center]
+    width: [irfWT580.width1,irfWT580.width2]
+    scale: [irfWT580.scale1,irfWT580.scale2]
+    dispersion_center: irf.dispc
+    center_dispersion_coefficients: [irf.disp1, irf.disp2]
+    backsweep: True
+    backsweep_period: irf.backsweep
+  irfdPSII400:
+    # type: multi-gaussian
+    type: spectral-multi-gaussian
+    center: [irfdPSII400.center]
+    width: [irfdPSII400.width1,irfdPSII400.width2]
+    scale: [irfdPSII400.scale1,irfdPSII400.scale2]
+    dispersion_center: irf.dispc
+    center_dispersion_coefficients: [irf.disp1, irf.disp2]
+    backsweep: True
+    backsweep_period: irf.backsweep
+  irfdPSII532:
+    type: spectral-multi-gaussian
+    center: [irfdPSII532.center]
+    width: [irfdPSII532.width1,irfdPSII532.width2]
+    scale: [irfdPSII532.scale1,irfdPSII532.scale2]
+    dispersion_center: irf.dispc
+    center_dispersion_coefficients: [irf.disp1, irf.disp2]
+    backsweep: True
+    backsweep_period: irf.backsweep
+  irfdPSII540:
+    type: spectral-multi-gaussian
+    center: [irfdPSII540.center]
+    width: [irfdPSII540.width1,irfdPSII540.width2]
+    scale: [irfdPSII540.scale1,irfdPSII540.scale2]
+    dispersion_center: irf.dispc
+    center_dispersion_coefficients: [irf.disp1, irf.disp2]
+    backsweep: True
+    backsweep_period: irf.backsweep
+  irfdPSII580:
+    type: spectral-multi-gaussian
+    center: [irfdPSII580.center]
+    width: [irfdPSII580.width1,irfdPSII580.width2]
+    scale: [irfdPSII580.scale1,irfdPSII580.scale2]
+    dispersion_center: irf.dispc
+    center_dispersion_coefficients: [irf.disp1, irf.disp2]
+    backsweep: True
+    backsweep_period: irf.backsweep
+  irfPBS580:
+    type: spectral-multi-gaussian
+    center: [irfPBS580.center]
+    width: [irfPBS580.width1,irfPBS580.width2]
+    scale: [irfPBS580.scale1,irfPBS580.scale2]
+    dispersion_center: irf.dispc
+    center_dispersion_coefficients: [irf.disp1, irf.disp2]
+    backsweep: True
+    backsweep_period: irf.backsweep
+
+
+clp_relations:
+  - source: PBAPC660t
+    target: PBAPC660b
+    parameter: rel.r1
+    interval: [[0, 1000]]
+  - source: PBAPC660t
+    target: PBAPC660e
+    parameter: rel.r1
+    interval: [[0, 1000]]
+  - source: PBPC650t
+    target: PBPC650b
+    parameter: rel.r1
+    interval: [[0, 1000]]
+  - source: PBPC650t
+    target: PBPC650e
+    parameter: rel.r1
+    interval: [[0, 1000]]
+  - source: APC660t
+    target: APC660b
+    parameter: rel.r1
+    interval: [[0, 1000]]
+  - source: APC660t
+    target: APC660e
+    parameter: rel.r1
+    interval: [[0, 1000]]
+  - source: PC650t
+    target: PC650b
+    parameter: rel.r1
+    interval: [[0, 1000]]
+  - source: PC650t
+    target: PC650e
+    parameter: rel.r1
+    interval: [[0, 1000]]
+  - source: PC650t
+    target: PC650free
+    parameter: rel.r1
+    interval: [[0, 1000]]
+  - source: PC640t
+    target: PC640b
+    parameter: rel.r1
+    interval: [[0, 1000]]
+  - source: PC640t
+    target: PC640e
+    parameter: rel.r1
+    interval: [[0, 1000]]
+  - source: PBPC640t
+    target: PBPC640b
+    parameter: rel.r1
+    interval: [[0, 1000]]
+  - source: PBPC640t
+    target: PBPC640e
+    parameter: rel.r1
+    interval: [[0, 1000]]
+  - source: PC640t
+    target: PC640free
+    parameter: rel.r1
+    interval: [[0, 1000]]
+
+clp_penalties:
+  - type: equal_area
+    source: PC650t
+    source_intervals: [[1,1001]]
+    target: PSIbulk
+    target_intervals: [[1,1001]]
+    parameter: area.PSIbulk
+    weight: 0.06
+  - type: equal_area
+    source: PC650t
+    source_intervals: [[1,1001]]
+    target: PSIIbulk
+    target_intervals: [[1,1001]]
+    parameter: area.PSIbulk
+    weight: 0.06
+  - type: equal_area
+    source: PC650t
+    source_intervals: [[1,1001]]
+    target: PSIred
+    target_intervals: [[1,1001]]
+    parameter: area.PSIbulk
+    weight: 0.02
+  - type: equal_area
+    source: PC650t
+    source_intervals: [[1,1001]]
+    target: PC640t
+    target_intervals: [[1,1001]]
+    parameter: area.PC
+    weight: 0.02
+  - type: equal_area
+    source: PC650t
+    source_intervals: [[1,1001]]
+    target: APC660t
+    target_intervals: [[1,1001]]
+    parameter: area.PC
+    weight: 0.02
+  - type: equal_area
+    source: PC650t
+    source_intervals: [[1,1001]]
+    target: APC680
+    target_intervals: [[1,1001]]
+    parameter: area.PC
+    weight: 0.2
+
+clp_constraints:
+  - type: zero
+    target: APC680
+    interval:
+      - [1,650]
+  - type: zero
+    target: PBAPC680
+    interval:
+      - [1,650]
+  - type: zero
+    target: PSIbulk
+    interval:
+      - [1,650]
+  - type: zero
+    target: PSIIbulk
+    interval:
+      - [1,650]
+  - type: zero
+    target: PSIred
+    interval:
+      - [1,680]
+  - type: zero
+    target: PSIIRP
+    interval:
+      - [1,1000]
+
+weights:
+  # - datasets: [WT400_data,WT580_data]
+  - datasets: [WT580_data]
+    value: 0.15
+  - datasets: [guide_APC680,guide_APC660,guide_PC650,guide_PC640]
+    value: 1.0401
+  - datasets: [guide_PBAPC680,guide_PBAPC660,guide_PBPC650,guide_PBPC640]
+    value: 1.0401

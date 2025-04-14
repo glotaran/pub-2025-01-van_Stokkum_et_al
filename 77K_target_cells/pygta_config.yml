@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=pygta_config.schema.json
+
+plotting:
+  general:
+    default_args_override:
+      use_svd_number: true
+      nr_of_residual_svd_vectors: 1
+    axis_label_override:
+      time: Time (ps)
+      spectral: Wavelength (nm)
+      species_concentration: ""
+      species_associated_spectra: ""
+      "decay_associated_spectra_decay\nTA": ""
+      "weighted_residual_left_singula\nr_vectors": ""
+      "weighted_residual_right_singul\nar_vectors": ""
+      "weighted_residual_singular_val\nues": ""
+      "data_left_singular_vectors": ""
+      "data_right_singular_vectors": ""
+      "data_singular_values": ""
+      "decay_associated_spectra_decay": ""
+      "residual_left_singular_vectors": ""
+      "residual_right_singular_vector\ns": ""
+      "residual_singular_values": ""
+
+  plot_overview:
+    default_args_override:
+      show_zero_line: true
+
+  plot_das:
+    default_args_override:
+      title: DAS
+  plot_sas:
+    default_args_override:
+      title: SAS
+  plot_norm_das:
+    default_args_override:
+      title: norm DAS
+  plot_norm_sas:
+    default_args_override:
+      title: norm SAS

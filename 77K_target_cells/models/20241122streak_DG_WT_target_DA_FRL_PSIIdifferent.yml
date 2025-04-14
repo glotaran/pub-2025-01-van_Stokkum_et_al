@@ -1,0 +1,670 @@
+default_megacomplex: decay
+dataset_groups:
+  streak:
+    residual_function: non_negative_least_squares
+    link_clp: True
+  streakDG:
+    residual_function: non_negative_least_squares
+    link_clp: True
+
+dataset:
+  DA410:
+    group: streak
+    megacomplex: [slowcomplexDA410,DA410artefact]
+    megacomplex_scale: [scalem.1,scalem.slowDA410]
+    initial_concentration: DA410input
+    irf: DA410irf
+    scale: scale.DA410
+  DA610:
+    group: streak
+    megacomplex: [slowcomplexDA610,DA610artefact]
+    megacomplex_scale: [scalem.1,scalem.slowDA610]
+    initial_concentration: DA610input
+    irf: DA610irf
+    scale: scale.DA610
+  FRL410:
+    group: streak
+    megacomplex: [slowcomplexFRL410,FRL410artefact]
+    megacomplex_scale: [scalem.1,scalem.slowFRL410]
+    # initial_concentration: DA410input
+    initial_concentration: FRL410input
+    irf: FRL410irf
+    scale: scale.FRL410
+  FRL610:
+    group: streak
+    megacomplex: [slowcomplexFRL610,FRL610artefact]
+    megacomplex_scale: [scalem.1,scalem.slowFRL610]
+    # initial_concentration: DA610input
+    initial_concentration: FRL610input
+    irf: FRL610irf
+    scale: scale.FRL610
+  data650:
+    group: streak
+    megacomplex:
+      - g650
+    scale: scale.650
+  data660:
+    group: streak
+    megacomplex:
+      - g660
+    scale: scale.660
+  data680:
+    group: streak
+    megacomplex:
+      - g680
+    scale: scale.680
+  dataPSII1:
+    group: streak
+    megacomplex:
+      - gPSII1
+    scale: scale.PSII1
+  dataPSII2:
+    group: streak
+    megacomplex:
+      - gPSII2
+    scale: scale.PSII2
+  dataPSII3:
+    group: streak
+    megacomplex:
+      - gPSII3
+    scale: scale.PSII3
+  dataPSI3:
+    group: streak
+    megacomplex:
+      - gPSI3
+    scale: scale.PSI3
+  DA410DG:
+    group: streakDG
+    megacomplex: [slowcomplexDA410DG,DA410artefact]
+    megacomplex_scale: [scalem.1,scalem.slowDA410DG]
+    initial_concentration: DA410DGinput
+    irf: DA410DGirf
+    scale: scale.DA410DG
+  DA610DG:
+    group: streakDG
+    megacomplex: [slowcomplexDA610DG,DA610artefact]
+    megacomplex_scale: [scalem.1,scalem.slowDA610DG]
+    initial_concentration: DA610DGinput
+    irf: DA610DGirf
+    scale: scale.DA610DG
+  FRL410DG:
+    group: streakDG
+    megacomplex: [slowcomplexFRL410DG,FRL410artefact]
+    megacomplex_scale: [scalem.1,scalem.slowFRL410DG]
+    # initial_concentration: DA410DGinput
+    initial_concentration: FRL410DGinput
+    irf: FRL410DGirf
+    scale: scale.FRL410DG
+  FRL610DG:
+    group: streakDG
+    megacomplex: [slowcomplexFRL610DG,FRL610artefact]
+    megacomplex_scale: [scalem.1,scalem.slowFRL610DG]
+    # initial_concentration: DA610DGinput
+    initial_concentration: FRL610DGinput
+    irf: FRL610DGirf
+    scale: scale.FRL610DG
+  data650DG:
+    group: streakDG
+    megacomplex:
+      - g650
+    scale: scale.650
+  data660DG:
+    group: streakDG
+    megacomplex:
+      - g660
+    scale: scale.660
+  data680DG:
+    group: streakDG
+    megacomplex:
+      - g680
+    scale: scale.680
+  dataPSII1DG:
+    group: streakDG
+    megacomplex:
+      - gPSII1
+    scale: scale.PSII1
+  dataPSII2DG:
+    group: streakDG
+    megacomplex:
+      - gPSII2
+    scale: scale.PSII2
+  dataPSII3DG:
+    group: streakDG
+    megacomplex:
+      - gPSII3
+    scale: scale.PSII3
+  dataPSI3DG:
+    group: streakDG
+    megacomplex:
+      - gPSI3
+    scale: scale.PSI3
+
+megacomplex:
+  g650:
+    dimension: time
+    target: PC650e
+    type: clp-guide
+  g660:
+    dimension: time
+    target: APC660e
+    type: clp-guide
+  g680:
+    dimension: time
+    target: APC680
+    type: clp-guide
+  gPSII1:
+    dimension: time
+    target: PSII1
+    type: clp-guide
+  gPSII2:
+    dimension: time
+    target: PSII2
+    type: clp-guide
+  gPSII3:
+    dimension: time
+    target: PSII3
+    type: clp-guide
+  gPSI3:
+    dimension: time
+    target: PSI3
+    type: clp-guide
+  complexPB:
+    k_matrix: [PBS]
+  complexFRL410:
+    k_matrix: [PBS,PSI,PSIIFRL,kmFRL410]
+  complexFRL410anni:
+    k_matrix: [PBS,PSIanni,PSIIFRL,kmFRL410]
+  complexFRL610:
+    k_matrix: [PBS,PSI,PSIIFRL,kmFRL610]
+  complexDA410:
+    k_matrix: [PBS,PSI,PSII,kmDA410]
+  complexDA610:
+    k_matrix: [PBS,PSI,PSII,kmDA610]
+  complexFRL410DG:
+    k_matrix: [PBS,PSI,PSIIFRL,kmFRL410DG]
+  complexFRL610DG:
+    k_matrix: [PBS,PSI,PSIIFRL,kmFRL610DG]
+  complexDA410DG:
+    k_matrix: [PBS,PSI,PSII,kmDA410DG]
+  complexDA610DG:
+    k_matrix: [PBS,PSI,PSII,kmDA610DG]
+  slowcomplexFRL410:
+    k_matrix: [PBS,PSI,PSIIFRL,kslowFRL410]
+  slowcomplexFRL410anni:
+    k_matrix: [PBS,PSIanni,PSIIFRL,kslowFRL410]
+  slowcomplexFRL610:
+    k_matrix: [PBS,PSI,PSIIFRL,kslowFRL610]
+  slowcomplexDA410:
+    k_matrix: [PBS,PSI,PSII,kslowDA410]
+  slowcomplexDA610:
+    k_matrix: [PBS,PSI,PSII,kslowDA610]
+  slowcomplexFRL410DG:
+    k_matrix: [PBS,PSI,PSIIFRL,kslowFRL410DG]
+  slowcomplexFRL610DG:
+    k_matrix: [PBS,PSI,PSIIFRL,kslowFRL610DG]
+  slowcomplexDA410DG:
+    k_matrix: [PBS,PSI,PSII,kslowDA410DG]
+  slowcomplexDA610DG:
+    k_matrix: [PBS,PSI,PSII,kslowDA610DG]
+  plotcomplexFRL610:
+    k_matrix: [PSI,PSIIFRL,kslowFRL610]
+  plotcomplexDA610:
+    k_matrix: [PSI,PSII,kslowDA610]
+  plotcomplexFRL610DG:
+    k_matrix: [PSI,PSIIFRL,kslowFRL610DG]
+  plotcomplexDA610DG:
+    k_matrix: [PSI,PSII,kslowDA610DG]
+  DA410artefact:
+    type: coherent-artifact
+    order: 1
+  DA610artefact:
+    type: coherent-artifact
+    order: 1
+  FRL410artefact:
+    type: coherent-artifact
+    order: 1
+  FRL610artefact:
+    type: coherent-artifact
+    order: 1
+
+k_matrix:
+  PSII:
+    matrix:
+      (PSII2, PSII1): ratesII.1
+      (PSII3, PSII2): ratesII.2
+      # (PSI1, PSII1): ratesII.1so
+      # (PSI1, PSII2): ratesII.2so
+      (PSII3, PSII3): ratesII.3
+  PSIIFRL:
+    matrix:
+      (PSII2, PSII1): ratesIIFRL.1
+      (PSII3, PSII2): ratesIIFRL.2
+      # (PSI1, PSII1): ratesIIFRL.1so
+      # (PSI1, PSII2): ratesIIFRL.2so
+      (PSII3, PSII3): ratesIIFRL.3
+  PSI:
+    matrix:
+      (PSI2, PSI1): ratesI.1
+      (PSI3, PSI2): ratesI.2
+      (PSI3, PSI3): ratesI.3
+  PSIanni:
+    matrix:
+      (PSI2, PSI1): ratesI.1
+      (PSI1, PSI1): ratesI.anni
+      (PSI3, PSI2): ratesI.2
+      (PSI2, PSI2): ratesI.anni
+      (PSI3, PSI3): ratesI.3
+  kmFRL410:
+    matrix:
+      (PSII1,APC680): FRL410ratesII.k2
+      (PSI1,APC680): FRL410ratesI.k2
+  kmFRL610:
+    matrix:
+      (PSII1,APC680): FRL610ratesII.k2
+      (PSI1,APC680): FRL610ratesI.k2
+  kmDA410:
+    matrix:
+      (PSII1,APC680): DA410ratesII.k2
+      (PSI1,APC680): DA410ratesI.k2
+  kmDA610:
+    matrix:
+      (PSII1,APC680): DA610ratesII.k2
+      (PSI1,APC680): DA610ratesI.k2
+  kmFRL410DG:
+    matrix:
+      (PSII1,APC680): FRL410DGratesII.k2
+      (PSI1,APC680): FRL410DGratesI.k2
+  kmFRL610DG:
+    matrix:
+      (PSII1,APC680): FRL610DGratesII.k2
+      (PSI1,APC680): FRL610DGratesI.k2
+  kmDA410DG:
+    matrix:
+      (PSII1,APC680): DA410DGratesII.k2
+      (PSI1,APC680): DA410DGratesI.k2
+  kmDA610DG:
+    matrix:
+      (PSII1,APC680): DA610DGratesII.k2
+      (PSI1,APC680): DA610DGratesI.k2
+  kslowFRL410:
+    matrix:
+      (PSII1,APC680): FRL410rateslowII.k2
+      (PSI1,APC680): FRL410rateslowI.k2
+  kslowFRL610:
+    matrix:
+      (PSII1,APC680): FRL610rateslowII.k2
+      (PSI1,APC680): FRL610rateslowI.k2
+  kslowDA410:
+    matrix:
+      (PSII1,APC680): DA410rateslowII.k2
+      (PSI1,APC680): DA410rateslowI.k2
+  kslowDA610:
+    matrix:
+      (PSII1,APC680): DA610rateslowII.k2
+      (PSI1,APC680): DA610rateslowI.k2
+  kslowFRL410DG:
+    matrix:
+      (PSII1,APC680): FRL410DGrateslowII.k2
+      (PSI1,APC680): FRL410DGrateslowI.k2
+  kslowFRL610DG:
+    matrix:
+      (PSII1,APC680): FRL610DGrateslowII.k2
+      (PSI1,APC680): FRL610DGrateslowI.k2
+  kslowDA410DG:
+    matrix:
+      (PSII1,APC680): DA410DGrateslowII.k2
+      (PSI1,APC680): DA410DGrateslowI.k2
+  kslowDA610DG:
+    matrix:
+      (PSII1,APC680): DA610DGrateslowII.k2
+      (PSI1,APC680): DA610DGrateslowI.k2
+  PBS:
+    matrix:
+      (APC660t, APC660t): kinetic.out
+      (APC660t, APC660b): kinetic.1
+      (APC660t, APC660e): kinetic.1
+      (APC660b, APC660t): kinetic.1
+      (APC660b, APC660b): kinetic.out
+      (APC660b, APC660e): kinetic.2
+      (APC660e, APC660t): kinetic.1_1
+      (APC660e, APC660b): kinetic.2_1
+      (APC660e, APC660e): kinetic.out
+      (APC660e, APC680): kinetic.3_2
+      (APC680, APC660e): kinetic.3
+      # (APC680f, APC680): kinetic.4
+      (APC680, APC680): kinetic.out
+  # kmrodt:
+  #   matrix:
+      (APC660t, PC650t): rates.ToAPC660tFromPC650t
+      (PC650t, PC650t): kinetic.out
+      (PC650t, APC660t): rates.ToPC650tFromAPC660t
+  # kmrodb:
+  #   matrix:
+      (APC660b, PC650b): rates.ToAPC660tFromPC650t
+      (PC650b, PC650b): kinetic.out
+      (PC650b, APC660b): rates.ToPC650tFromAPC660t
+  # kmrode:
+  #   matrix:
+      (APC660e, PC650e): rates.ToAPC660eFromPC650e
+      (PC650e, PC650e): kinetic.out
+      (PC650e, APC660e): rates.ToPC650eFromAPC660e
+      #   k_matrix: [DA410kmfreerod]
+# note that earlier definition will override later definition
+  # DA410kmfreerod:
+  #   matrix:
+  #     (freerod, freerod): DA410rates.kF
+
+initial_concentration:
+  DA410input:
+    compartments: [APC660t, APC660b, APC660e, APC680,PC650t,PC650b,PC650e,
+    PSII1,PSII2,PSII3,PSI1, PSI2,PSI3]
+    parameters: [
+      input410.APC660t_APC660b,
+      input410.APC660t_APC660b,
+      input410.APC660e,
+      input410.APC680, input410.PC650, input410.PC650, input410.PC650,
+      input410.PSII1,input.0,input.0,input410.PSI1,input.0,input.0
+      ]
+  DA610input:
+    compartments: [APC660t, APC660b, APC660e, APC680,PC650t,PC650b,PC650e,
+    PSII1,PSII2,PSII3,PSI1, PSI2,PSI3]
+    parameters: [
+      input610.APC660t_APC660b,
+      input610.APC660t_APC660b,
+      input610.APC660e,
+      input610.APC680, input610.PC650, input610.PC650, input610.PC650,
+      input610.PSII1,input.0,input.0,input610.PSI1,input.0,input.0
+      ]
+  FRL410input:
+    compartments: [APC660t, APC660b, APC660e, APC680,PC650t,PC650b,PC650e,
+    PSII1,PSII2,PSII3,PSI1, PSI2,PSI3]
+    parameters: [
+      FRLinput410.APC660t_APC660b,
+      FRLinput410.APC660t_APC660b,
+      FRLinput410.APC660e,
+      FRLinput410.APC680, FRLinput410.PC650, FRLinput410.PC650, FRLinput410.PC650,
+      FRLinput410.PSII1,input.0,input.0,FRLinput410.PSI1,input.0,input.0
+      ]
+  FRL610input:
+    compartments: [APC660t, APC660b, APC660e, APC680,PC650t,PC650b,PC650e,
+    PSII1,PSII2,PSII3,PSI1, PSI2,PSI3]
+    parameters: [
+      FRLinput610.APC660t_APC660b,
+      FRLinput610.APC660t_APC660b,
+      FRLinput610.APC660e,
+      FRLinput610.APC680, FRLinput610.PC650, FRLinput610.PC650, FRLinput610.PC650,
+      FRLinput610.PSII1,input.0,input.0,FRLinput610.PSI1,input.0,input.0
+      ]
+  DA410DGinput:
+    compartments: [APC660t, APC660b, APC660e, APC680,PC650t,PC650b,PC650e,
+    PSII1,PSII2,PSII3,PSI1, PSI2,PSI3]
+    parameters: [
+      input410.APC660t_APC660b,
+      input410.APC660t_APC660b,
+      input410.APC660e,
+      input410.APC680, input410.PC650, input410.PC650, input410.PC650,
+      input410DG.PSII1,input.0,input.0,input410DG.PSI1,input.0,input.0
+      ]
+  DA610DGinput:
+    compartments: [APC660t, APC660b, APC660e, APC680,PC650t,PC650b,PC650e,
+    PSII1,PSII2,PSII3,PSI1, PSI2,PSI3]
+    parameters: [
+      input610.APC660t_APC660b,
+      input610.APC660t_APC660b,
+      input610.APC660e,
+      input610.APC680, input610.PC650, input610.PC650, input610.PC650,
+      input610DG.PSII1,input.0,input.0,input610DG.PSI1,input.0,input.0
+      ]
+  FRL410DGinput:
+    compartments: [APC660t, APC660b, APC660e, APC680,PC650t,PC650b,PC650e,
+    PSII1,PSII2,PSII3,PSI1, PSI2,PSI3]
+    parameters: [
+      FRLinput410.APC660t_APC660b,
+      FRLinput410.APC660t_APC660b,
+      FRLinput410.APC660e,
+      FRLinput410.APC680, FRLinput410.PC650, FRLinput410.PC650, FRLinput410.PC650,
+      FRLinput410DG.PSII1,input.0,input.0,FRLinput410DG.PSI1,input.0,input.0
+      ]
+  FRL610DGinput:
+    compartments: [APC660t, APC660b, APC660e, APC680,PC650t,PC650b,PC650e,
+    PSII1,PSII2,PSII3,PSI1, PSI2,PSI3]
+    parameters: [
+      FRLinput610.APC660t_APC660b,
+      FRLinput610.APC660t_APC660b,
+      FRLinput610.APC660e,
+      FRLinput610.APC680, FRLinput610.PC650, FRLinput610.PC650, FRLinput610.PC650,
+      FRLinput610DG.PSII1,input.0,input.0,FRLinput610DG.PSI1,input.0,input.0
+      ]
+  # FRL410input:
+  #   compartments: [FRL410r1,FRL410r2,PSII2,PSII3, PSI2,PSI3]
+  #   parameters: [input.1, input.0, input.0, input.0, input.0, input.0]
+  # FRL610input:
+  #   compartments: [FRL610r1,FRL610r2,PSII2,PSII3, PSI2,PSI3]
+  #   parameters: [input.1, input.0, input.0, input.0, input.0, input.0]
+    # exclude_from_normalize: [freerod]
+
+# clp_penalties:
+#   - type: equal_area
+#     source: freerod
+#     source_intervals: [[0, 1000]]
+#     target: br1
+#     target_intervals: [[0, 1000]]
+#     parameter: area.1
+#     weight: 0.62e-2
+
+# it is implicitly normalized, i.e. divided by sum of irfscale parameters
+irf:
+  DA410irf:
+    type: multi-gaussian
+    center: [DA410irf.center]
+    width: [DA410irf.width]
+  FRL410irf:
+    type: multi-gaussian
+    center: [FRL410irf.center]
+    width: [FRL410irf.width]
+  DA610irf:
+    type: multi-gaussian
+    center: [DA610irf.center]
+    width: [DA610irf.width]
+  FRL610irf:
+    type: multi-gaussian
+    center: [FRL610irf.center]
+    width: [FRL610irf.width]
+  DA410DGirf:
+    type: multi-gaussian
+    center: [DA410DGirf.center]
+    width: [DA410DGirf.width]
+  FRL410DGirf:
+    type: multi-gaussian
+    center: [FRL410DGirf.center]
+    width: [FRL410DGirf.width]
+  DA610DGirf:
+    type: multi-gaussian
+    center: [DA610DGirf.center]
+    width: [DA610DGirf.width]
+  FRL610DGirf:
+    type: multi-gaussian
+    center: [FRL610DGirf.center]
+    width: [FRL610DGirf.width]
+
+# clp_relations:
+#   - source: PSII3
+#     target: DA610r4
+#     parameter: rel.r1
+#     interval: [[0, 1000]]
+#   - source: PSII3
+#     target: PSI2
+#     parameter: rel.r1
+#     interval: [[0, 1000]]
+#   - source: PSII3
+#     target: FRL610r4
+#     parameter: rel.r1
+#     interval: [[0, 1000]]
+# source=parameter*target
+clp_penalties:
+  - type: equal_area
+    source: PC650t
+    source_intervals: [[0, 1000]]
+    target: APC680
+    target_intervals: [[0, 1000]]
+    parameter: area.1
+    weight: 0.62e0
+  - type: equal_area
+    source: APC660t
+    source_intervals: [[0, 1000]]
+    target: APC680
+    target_intervals: [[0, 1000]]
+    parameter: area.1
+    weight: 0.62e0
+  - type: equal_area
+    source: PSI1
+    source_intervals: [[0, 1000]]
+    target: APC680
+    target_intervals: [[0, 1000]]
+    parameter: area.2
+    weight: 0.62e0
+  - type: equal_area
+    source: PSII1
+    source_intervals: [[0, 1000]]
+    target: APC680
+    target_intervals: [[0, 1000]]
+    parameter: area.2
+    weight: 0.62e0
+  # - type: equal_area
+  #   source: APC660t
+  #   source_intervals: [[0, 1000]]
+  #   target: PSII2
+  #   target_intervals: [[0, 1000]]
+  #   parameter: area.2
+  #   weight: 0.62e-1
+
+clp_relations:
+  - source: APC660t
+    target: APC660b
+    parameter: rel.r1
+    interval: [[0, 1000]]
+  - source: APC660t
+    target: APC660e
+    parameter: rel.r1
+    interval: [[0, 1000]]
+  - source: PC650t
+    target: PC650b
+    parameter: rel.r1
+    interval: [[0, 1000]]
+  - source: PC650t
+    target: PC650e
+    parameter: rel.r1
+    interval: [[0, 1000]]
+
+clp_constraints:
+  # - type: zero
+  #   target: freerod
+  #   interval:
+  #     - [670,1000]
+  - type: zero
+    target: coherent_artifact_1_DA410artefact
+    interval:
+      - [1,800]
+  - type: zero
+    target: coherent_artifact_1_FRL410artefact
+    interval:
+      - [1,800]
+  - type: zero
+    target: coherent_artifact_1_DA610artefact
+    interval:
+      - [660,1000]
+  - type: zero
+    target: coherent_artifact_1_FRL610artefact
+    interval:
+      - [660,1000]
+  - type: zero
+    target: PSII1
+    interval:
+      - [0,655]
+  # - type: zero
+  #   target: PSII2
+  #   interval:
+  #     - [0,670]
+  - type: zero
+    target: PSI1
+    interval:
+      - [0,667]
+  - type: zero
+    target: PSI1
+    interval:
+      - [810,980]
+  - type: zero
+    target: PSI2
+    interval:
+      - [0,700]
+  - type: zero
+    target: PSI3
+    interval:
+      - [0,700]
+  # - type: zero
+  #   target: PB1
+  #   interval:
+  #     - [680,1000]
+  # - type: zero
+  #   target: PB2
+  #   interval:
+  #     - [680,1000]
+  # - type: zero
+  #   target: PSII1
+  #   interval:
+  #     - [710,1000]
+  # - type: zero
+  #   target: PSII3
+  #   interval:
+  #     - [710,1000]
+  # - type: zero
+  #   target: PSII3
+  #   interval:
+  #     - [710,1000]
+  # - type: zero
+  #   target: PSII1
+  #   interval:
+  #     - [0,670]
+  # - type: zero
+  #   target: PSII3
+  #   interval:
+  #     - [0,670]
+  # - type: zero
+  #   target: PSII3
+  #   interval:
+  #     - [0,670]
+  # - type: zero
+  #   target: PSI1
+  #   interval:
+  #     - [0,690]
+  # - type: zero
+  #   target: PSI2
+  #   interval:
+  #     - [0,690]
+  # - type: zero
+  #   target: br1
+  #   interval:
+  #     - [800,1000]
+weights:
+  - datasets: [dataPSII1]
+    value: 1
+  - datasets: [dataPSII2]
+    value: 10
+  - datasets: [dataPSII3]
+    value: 10
+  - datasets: [dataPSII1DG]
+    value: 5
+  - datasets: [dataPSII2DG]
+    value: 5
+  - datasets: [dataPSII3DG]
+    value: 10
+  - datasets: [dataPSI3DG]
+    value: 10
+  - datasets: [dataPSI3]
+    value: 10
+  - datasets: [data650]
+    value: 3
+  - datasets: [data650DG]
+    value: 3
+  - datasets: [FRL410]
+    value: 0.02
