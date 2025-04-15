@@ -26,7 +26,6 @@ dataset:
     group: streak
     megacomplex: [slowcomplexFRL410,FRL410artefact]
     megacomplex_scale: [scalem.1,scalem.slowFRL410]
-    # initial_concentration: DA410input
     initial_concentration: FRL410input
     irf: FRL410irf
     scale: scale.FRL410
@@ -34,7 +33,6 @@ dataset:
     group: streak
     megacomplex: [slowcomplexFRL610,FRL610artefact]
     megacomplex_scale: [scalem.1,scalem.slowFRL610]
-    # initial_concentration: DA610input
     initial_concentration: FRL610input
     irf: FRL610irf
     scale: scale.FRL610
@@ -91,7 +89,6 @@ dataset:
     group: streakDG
     megacomplex: [slowcomplexFRL410DG,FRL410artefact]
     megacomplex_scale: [scalem.1,scalem.slowFRL410DG]
-    # initial_concentration: DA410DGinput
     initial_concentration: FRL410DGinput
     irf: FRL410DGirf
     scale: scale.FRL410DG
@@ -99,7 +96,6 @@ dataset:
     group: streakDG
     megacomplex: [slowcomplexFRL610DG,FRL610artefact]
     megacomplex_scale: [scalem.1,scalem.slowFRL610DG]
-    # initial_concentration: DA610DGinput
     initial_concentration: FRL610DGinput
     irf: FRL610DGirf
     scale: scale.FRL610DG
@@ -170,28 +166,8 @@ megacomplex:
     type: clp-guide
   complexPB:
     k_matrix: [PBS]
-  complexFRL410:
-    k_matrix: [PBS,PSI,PSIIFRL,kmFRL410]
-  complexFRL410anni:
-    k_matrix: [PBS,PSIanni,PSIIFRL,kmFRL410]
-  complexFRL610:
-    k_matrix: [PBS,PSI,PSIIFRL,kmFRL610]
-  complexDA410:
-    k_matrix: [PBS,PSI,PSII,kmDA410]
-  complexDA610:
-    k_matrix: [PBS,PSI,PSII,kmDA610]
-  complexFRL410DG:
-    k_matrix: [PBS,PSI,PSIIFRL,kmFRL410DG]
-  complexFRL610DG:
-    k_matrix: [PBS,PSI,PSIIFRL,kmFRL610DG]
-  complexDA410DG:
-    k_matrix: [PBS,PSI,PSII,kmDA410DG]
-  complexDA610DG:
-    k_matrix: [PBS,PSI,PSII,kmDA610DG]
   slowcomplexFRL410:
     k_matrix: [PBS,PSI,PSIIFRL,kslowFRL410]
-  slowcomplexFRL410anni:
-    k_matrix: [PBS,PSIanni,PSIIFRL,kslowFRL410]
   slowcomplexFRL610:
     k_matrix: [PBS,PSI,PSIIFRL,kslowFRL610]
   slowcomplexDA410:
@@ -232,60 +208,17 @@ k_matrix:
     matrix:
       (PSII2, PSII1): ratesII.1
       (PSII3, PSII2): ratesII.2
-      # (PSI1, PSII1): ratesII.1so
-      # (PSI1, PSII2): ratesII.2so
       (PSII3, PSII3): ratesII.3
   PSIIFRL:
     matrix:
       (PSII2, PSII1): ratesIIFRL.1
       (PSII3, PSII2): ratesIIFRL.2
-      # (PSI1, PSII1): ratesIIFRL.1so
-      # (PSI1, PSII2): ratesIIFRL.2so
       (PSII3, PSII3): ratesIIFRL.3
   PSI:
     matrix:
       (PSI2, PSI1): ratesI.1
       (PSI3, PSI2): ratesI.2
       (PSI3, PSI3): ratesI.3
-  PSIanni:
-    matrix:
-      (PSI2, PSI1): ratesI.1
-      (PSI1, PSI1): ratesI.anni
-      (PSI3, PSI2): ratesI.2
-      (PSI2, PSI2): ratesI.anni
-      (PSI3, PSI3): ratesI.3
-  kmFRL410:
-    matrix:
-      (PSII1,APC680): FRL410ratesII.k2
-      (PSI1,APC680): FRL410ratesI.k2
-  kmFRL610:
-    matrix:
-      (PSII1,APC680): FRL610ratesII.k2
-      (PSI1,APC680): FRL610ratesI.k2
-  kmDA410:
-    matrix:
-      (PSII1,APC680): DA410ratesII.k2
-      (PSI1,APC680): DA410ratesI.k2
-  kmDA610:
-    matrix:
-      (PSII1,APC680): DA610ratesII.k2
-      (PSI1,APC680): DA610ratesI.k2
-  kmFRL410DG:
-    matrix:
-      (PSII1,APC680): FRL410DGratesII.k2
-      (PSI1,APC680): FRL410DGratesI.k2
-  kmFRL610DG:
-    matrix:
-      (PSII1,APC680): FRL610DGratesII.k2
-      (PSI1,APC680): FRL610DGratesI.k2
-  kmDA410DG:
-    matrix:
-      (PSII1,APC680): DA410DGratesII.k2
-      (PSI1,APC680): DA410DGratesI.k2
-  kmDA610DG:
-    matrix:
-      (PSII1,APC680): DA610DGratesII.k2
-      (PSI1,APC680): DA610DGratesI.k2
   kslowFRL410:
     matrix:
       (PSII1,APC680): FRL410rateslowII.k2
@@ -331,28 +264,19 @@ k_matrix:
       (APC660e, APC660e): kinetic.out
       (APC660e, APC680): kinetic.3_2
       (APC680, APC660e): kinetic.3
-      # (APC680f, APC680): kinetic.4
       (APC680, APC680): kinetic.out
   # kmrodt:
-  #   matrix:
       (APC660t, PC650t): rates.ToAPC660tFromPC650t
       (PC650t, PC650t): kinetic.out
       (PC650t, APC660t): rates.ToPC650tFromAPC660t
   # kmrodb:
-  #   matrix:
       (APC660b, PC650b): rates.ToAPC660tFromPC650t
       (PC650b, PC650b): kinetic.out
       (PC650b, APC660b): rates.ToPC650tFromAPC660t
   # kmrode:
-  #   matrix:
       (APC660e, PC650e): rates.ToAPC660eFromPC650e
       (PC650e, PC650e): kinetic.out
       (PC650e, APC660e): rates.ToPC650eFromAPC660e
-      #   k_matrix: [DA410kmfreerod]
-# note that earlier definition will override later definition
-  # DA410kmfreerod:
-  #   matrix:
-  #     (freerod, freerod): DA410rates.kF
 
 initial_concentration:
   DA410input:
@@ -435,24 +359,7 @@ initial_concentration:
       FRLinput610.APC680, FRLinput610.PC650, FRLinput610.PC650, FRLinput610.PC650,
       FRLinput610DG.PSII1,input.0,input.0,FRLinput610DG.PSI1,input.0,input.0
       ]
-  # FRL410input:
-  #   compartments: [FRL410r1,FRL410r2,PSII2,PSII3, PSI2,PSI3]
-  #   parameters: [input.1, input.0, input.0, input.0, input.0, input.0]
-  # FRL610input:
-  #   compartments: [FRL610r1,FRL610r2,PSII2,PSII3, PSI2,PSI3]
-  #   parameters: [input.1, input.0, input.0, input.0, input.0, input.0]
-    # exclude_from_normalize: [freerod]
 
-# clp_penalties:
-#   - type: equal_area
-#     source: freerod
-#     source_intervals: [[0, 1000]]
-#     target: br1
-#     target_intervals: [[0, 1000]]
-#     parameter: area.1
-#     weight: 0.62e-2
-
-# it is implicitly normalized, i.e. divided by sum of irfscale parameters
 irf:
   DA410irf:
     type: multi-gaussian
@@ -487,20 +394,6 @@ irf:
     center: [FRL610DGirf.center]
     width: [FRL610DGirf.width]
 
-# clp_relations:
-#   - source: PSII3
-#     target: DA610r4
-#     parameter: rel.r1
-#     interval: [[0, 1000]]
-#   - source: PSII3
-#     target: PSI2
-#     parameter: rel.r1
-#     interval: [[0, 1000]]
-#   - source: PSII3
-#     target: FRL610r4
-#     parameter: rel.r1
-#     interval: [[0, 1000]]
-# source=parameter*target
 clp_penalties:
   - type: equal_area
     source: PC650t
@@ -530,13 +423,6 @@ clp_penalties:
     target_intervals: [[0, 1000]]
     parameter: area.2
     weight: 0.62e0
-  # - type: equal_area
-  #   source: APC660t
-  #   source_intervals: [[0, 1000]]
-  #   target: PSII2
-  #   target_intervals: [[0, 1000]]
-  #   parameter: area.2
-  #   weight: 0.62e-1
 
 clp_relations:
   - source: APC660t
@@ -557,10 +443,6 @@ clp_relations:
     interval: [[0, 1000]]
 
 clp_constraints:
-  # - type: zero
-  #   target: freerod
-  #   interval:
-  #     - [670,1000]
   - type: zero
     target: coherent_artifact_1_DA410artefact
     interval:
@@ -601,50 +483,7 @@ clp_constraints:
     target: PSI3
     interval:
       - [0,700]
-  # - type: zero
-  #   target: PB1
-  #   interval:
-  #     - [680,1000]
-  # - type: zero
-  #   target: PB2
-  #   interval:
-  #     - [680,1000]
-  # - type: zero
-  #   target: PSII1
-  #   interval:
-  #     - [710,1000]
-  # - type: zero
-  #   target: PSII3
-  #   interval:
-  #     - [710,1000]
-  # - type: zero
-  #   target: PSII3
-  #   interval:
-  #     - [710,1000]
-  # - type: zero
-  #   target: PSII1
-  #   interval:
-  #     - [0,670]
-  # - type: zero
-  #   target: PSII3
-  #   interval:
-  #     - [0,670]
-  # - type: zero
-  #   target: PSII3
-  #   interval:
-  #     - [0,670]
-  # - type: zero
-  #   target: PSI1
-  #   interval:
-  #     - [0,690]
-  # - type: zero
-  #   target: PSI2
-  #   interval:
-  #     - [0,690]
-  # - type: zero
-  #   target: br1
-  #   interval:
-  #     - [800,1000]
+
 weights:
   - datasets: [dataPSII1]
     value: 1
