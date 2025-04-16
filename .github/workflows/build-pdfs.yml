@@ -53,13 +53,13 @@ jobs:
       - name: Upload PDFs
         uses: actions/upload-artifact@v4
         with:
-          name: pdfs
+          name: pdfs-${{ matrix.case_study }}
           path: pdfs/*.pdf
 
       - name: Upload Evaluated Notebooks
         uses: actions/upload-artifact@v4
         with:
-          name: notebooks
+          name: notebooks-${{ matrix.case_study }}
           path: ${{ matrix.case_study }}/*.ipynb
 
   upload-artifacts:
@@ -73,14 +73,16 @@ jobs:
       - name: ⬇ Download pdf artifact
         uses: actions/download-artifact@v4
         with:
-          name: pdfs
           path: pdfs
+          pattern: pdfs-*
+          merge-multiple: true
 
       - name: ⬇ Download notebooks artifact
         uses: actions/download-artifact@v4
         with:
-          name: notebooks
           path: notebooks
+          pattern: notebooks-*
+          merge-multiple: true
 
       - name: 🚀⬆️ Upload pdf Asset
         if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
