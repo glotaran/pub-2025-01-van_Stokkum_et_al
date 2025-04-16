@@ -1,0 +1,49 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - name: Run pre-commit
+        uses: pre-commit/action@v3.0.1
+
+  test:
+    name: Run ${{ matrix.case_study }}
+    runs-on: ubuntu-latest
+    needs: [pre-commit]
+    strategy:
+      fail-fast: false
+      matrix:
+        case_study:
+          [77K_target_cells, 77K_target_MCL, RT_target_WT_dPSII_cells_PB]
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python "3.10"
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - name: Install the latest version of uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Install dependencies
+        run: |
+          uv pip install --system -r requirements.txt nbval
+      - name: Show installed packages
+        run: python -m pip freeze
+      - name: Run tests
+        run: |
+          python -m pytest --nbval ${{ matrix.case_study }}

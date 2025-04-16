@@ -1,4 +1,3 @@
-
 plotting:
   general:
     default_args_override:
@@ -9,17 +8,17 @@ plotting:
       spectral: Wavelength (nm)
       species_concentration: ""
       species_associated_spectra: ""
-      "decay_associated_spectra_decayTA": ""
-      "weighted_residual_left_singular_vectors": ""
-      "weighted_residual_right_singular_vectors": ""
-      "weighted_residual_singular_values": ""
-      "data_left_singular_vectors": ""
-      "data_right_singular_vectors": ""
-      "data_singular_values": ""
-      "decay_associated_spectra_decay": ""
-      "residual_left_singular_vectors": ""
-      "residual_right_singular_vectors": ""
-      "residual_singular_values": ""
+      decay_associated_spectra_decayTA: ""
+      weighted_residual_left_singular_vectors: ""
+      weighted_residual_right_singular_vectors: ""
+      weighted_residual_singular_values: ""
+      data_left_singular_vectors: ""
+      data_right_singular_vectors: ""
+      data_singular_values: ""
+      decay_associated_spectra_decay: ""
+      residual_left_singular_vectors: ""
+      residual_right_singular_vectors: ""
+      residual_singular_values: ""
 
   plot_overview:
     default_args_override:

@@ -1,0 +1,27 @@
+repos:
+  - repo: https://github.com/pycontribs/mirrors-prettier
+    rev: "v3.5.3"
+    hooks:
+      - id: prettier
+        exclude: "pygta_config\\.schema\\.json|2025.+\\.yml"
+
+  - repo: https://github.com/kynan/nbstripout
+    rev: 0.8.1
+    hooks:
+      - id: nbstripout
+        args:
+          - "--drop-empty-cells"
+          - "--extra-keys"
+          - "metadata.vscode metadata.language_info.version cell.metadata.papermill metadata.papermill"
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    # Ruff version.
+    rev: v0.11.5
+    hooks:
+      - id: ruff-format
+        name: "ruff format notebooks"
+
+  - repo: https://github.com/rhysd/actionlint
+    rev: "v1.7.7"
+    hooks:
+      - id: actionlint
