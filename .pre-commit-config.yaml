@@ -3,7 +3,6 @@ repos:
     rev: "v3.5.3"
     hooks:
       - id: prettier
-        additional_dependencies: ["prettier@3.3.3"]
         exclude: "pygta_config\\.schema\\.json|2025.+\\.yml"
 
   - repo: https://github.com/kynan/nbstripout
