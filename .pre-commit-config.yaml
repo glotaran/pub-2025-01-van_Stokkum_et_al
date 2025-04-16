@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pycontribs/mirrors-prettier
-    rev: 'v3.5.3'
+    rev: "v3.5.3"
     hooks:
       - id: prettier
         additional_dependencies: ["prettier@3.3.3"]
@@ -13,7 +13,7 @@ repos:
         args:
           - "--drop-empty-cells"
           - "--extra-keys"
-          - "metadata.vscode metadata.language_info.version metadata.kernelspec.display_name"
+          - "metadata.vscode metadata.language_info.version cell.metadata.papermill metadata.papermill"
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     # Ruff version.
