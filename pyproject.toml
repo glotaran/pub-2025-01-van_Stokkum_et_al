@@ -1,0 +1,16 @@
+[project]
+name = "pub-2025-01-van-stokkum-et-al"
+version = "0.1.0"
+description = "Supplementary Information (SI) for Cyanobacteria Dynamically Regulate Phycobilisome-to-Photosystems Excitation Energy Transfer"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "jupyterlab>=4.4.0",
+    "pyglotaran>=0.7.3",
+    "pyglotaran-extras>=0.7.3",
+]
+
+[project.optional-dependencies]
+test = [
+    "nbval>=0.11.0",
+]
