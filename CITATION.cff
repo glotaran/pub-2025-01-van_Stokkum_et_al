@@ -1,0 +1,53 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: >-
+  Cyanobacteria Dynamically Regulate
+  Phycobilisome-to-Photosystems Excitation Energy Transfer
+message: >-
+  If you use information from the paper or this CI please
+  cite the corresponding paper as below.
+type: dataset
+authors:
+  - family-names: Stokkum
+    given-names: Ivo H.M.
+    orcid: "https://orcid.org/0000-0002-6143-2021"
+    affiliation: Vrije Universiteit Amsterdam
+    email: i.h.m.van.stokkum@vu.nl
+    name-particle: van
+  - given-names: Dariusz M.
+    family-names: Niedzwiedzki
+    affiliation: >-
+      Center for Solar Energy and Energy Storage, Washington
+      University in St. Louis, St. Louis, MO 63130, USA,
+      Department of Energy Environmental and Chemical
+      Engineering, Washington University in St. Louis, St.
+      Louis, MO 63130, USA
+  - given-names: Parveen
+    family-names: Akhtar
+    affiliation: >-
+      HUN-REN Biological Research Centre, Temesvári krt. 62,
+      Szeged 6726, Hungary
+  - given-names: Avratanu
+    family-names: Biswas
+    affiliation: >-
+      Department of Physics and Astronomy and LaserLaB,
+      Faculty of Science, Vrije Universiteit Amsterdam, De
+      Boelelaan 1081, 1081 HV, Amsterdam, The Netherlands,
+      HUN-REN Biological Research Centre, Temesvári krt. 62,
+      Szeged 6726, Hungary
+  - given-names: Petar H.
+    family-names: Lambrev
+    affiliation: >-
+      HUN-REN Biological Research Centre, Temesvári krt. 62,
+      Szeged 6726, Hungary
+  - given-names: Haijun
+    family-names: Liu
+    affiliation: >-
+      Department of Biology, Saint Louis University, St.
+      Louis, MO 63103, USA
+identifiers:
+  - type: doi
+    value: 10.1016/j.isci.2025.112610
+repository: "https://github.com/glotaran/pub-2025-01-van_Stokkum_et_al"
