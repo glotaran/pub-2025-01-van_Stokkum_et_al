@@ -18,36 +18,36 @@ authors:
     name-particle: van
   - given-names: Dariusz M.
     family-names: Niedzwiedzki
-    affiliation: >-
-      Center for Solar Energy and Energy Storage, Washington
-      University in St. Louis, St. Louis, MO 63130, USA,
-      Department of Energy Environmental and Chemical
-      Engineering, Washington University in St. Louis, St.
-      Louis, MO 63130, USA
+    orcid: "https://orcid.org/0000-0002-1976-9296"
+    affiliation: Washington University in St. Louis
   - given-names: Parveen
     family-names: Akhtar
-    affiliation: >-
-      HUN-REN Biological Research Centre, Temesvári krt. 62,
-      Szeged 6726, Hungary
+    orcid: "https://orcid.org/0000-0002-3264-7154"
+    affiliation: HUN-REN Biological Research Centre
   - given-names: Avratanu
     family-names: Biswas
-    affiliation: >-
-      Department of Physics and Astronomy and LaserLaB,
-      Faculty of Science, Vrije Universiteit Amsterdam, De
-      Boelelaan 1081, 1081 HV, Amsterdam, The Netherlands,
-      HUN-REN Biological Research Centre, Temesvári krt. 62,
-      Szeged 6726, Hungary
+    affiliation: Vrije Universiteit Amsterdam
   - given-names: Petar H.
     family-names: Lambrev
-    affiliation: >-
-      HUN-REN Biological Research Centre, Temesvári krt. 62,
-      Szeged 6726, Hungary
+    orcid: "https://orcid.org/0000-0001-5147-153X"
+    affiliation: HUN-REN Biological Research Centre
   - given-names: Haijun
     family-names: Liu
-    affiliation: >-
-      Department of Biology, Saint Louis University, St.
-      Louis, MO 63103, USA
+    orcid: "https://orcid.org/0000-0003-0537-0302"
+    affiliation: Saint Louis University
 identifiers:
   - type: doi
     value: 10.1016/j.isci.2025.112610
 repository: "https://github.com/glotaran/pub-2025-01-van_Stokkum_et_al"
+keywords:
+  - "global analysis"
+  - "target analysis"
+  - "photosynthesis"
+  - "state transitions"
+  - "fluorescence"
+  - "ultrafast spectroscopy"
+  - "time-resolved spectroscopy"
+  - "biophysics"
+  - "glotaran"
+  - "python"
+license: CC-BY-4.0
