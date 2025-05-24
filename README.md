@@ -15,7 +15,7 @@ Ivo H.M. van Stokkum<sup>1,6\*</sup>, Dariusz M. Niedzwiedzki<sup>2,3</sup>, Par
 
 [![Paper DOI](https://img.shields.io/badge/DOI%20Paper-10.1016%2Fj.isci.2025.112610-brightgreen?style=flat)](https://doi.org/10.1016/j.isci.2025.112610)
 
-[![SI DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15115301.svg)](https://doi.org/10.5281/zenodo.15115301)
+[![SI DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15115300.svg)](https://doi.org/10.5281/zenodo.15115300)
 
 ## License
 
